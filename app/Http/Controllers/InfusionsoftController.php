@@ -9,36 +9,32 @@ use Response;
 
 class InfusionsoftController extends Controller
 {
+    private $infusionsoftHelper;
+
+    public function __construct(InfusionsoftHelper $infusionsoftHelper)
+    {
+        $this->infusionsoftHelper = $infusionsoftHelper;
+    }
+
     public function authorizeInfusionsoft(){
-        return (new InfusionsoftHelper())->authorize();
+        return $this->infusionsoftHelper->authorize();
     }
 
     public function testInfusionsoftIntegrationGetEmail($email){
-
-        $infusionsoft = new InfusionsoftHelper();
-
-        return Response::json($infusionsoft->getContact($email));
+        return Response::json($this->infusionsoftHelper->getContact($email));
     }
 
     public function testInfusionsoftIntegrationAddTag($contact_id, $tag_id){
-
-        $infusionsoft = new InfusionsoftHelper();
-
-        return Response::json($infusionsoft->addTag($contact_id, $tag_id));
+        return Response::json($this->infusionsoftHelper->addTag($contact_id, $tag_id));
     }
 
     public function testInfusionsoftIntegrationGetAllTags(){
-
-        $infusionsoft = new InfusionsoftHelper();
-
-        return Response::json($infusionsoft->getAllTags());
+        return Response::json($this->infusionsoftHelper->getAllTags());
     }
 
     public function testInfusionsoftIntegrationCreateContact(){
 
-        $infusionsoft = new InfusionsoftHelper();
-
-        return Response::json($infusionsoft->createContact([
+        return Response::json($this->infusionsoftHelper->createContact([
             'Email' => uniqid().'@test.com',
             "_Products" => 'ipa,iea'
         ]));
