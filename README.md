@@ -5,7 +5,6 @@ Senior Backend Developer Test for iPhone Photography School
 * identify all entities and create/update tables to have all the data connected as need it. 
 * create modules for all tables 
 * populate database tables with tags content and also generate some fake data for `users` and `user_progress`
-* 
 * create the API with dummy data and test the update in Infusionsoft for a user. 
 * create the tests for new created endpoint.
 * decide how we will know what tag to set based on user progress. 

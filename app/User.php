@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function completed_modules()
+    public function userProgress()
     {
-        return $this->belongsToMany('App\Module', 'user_completed_modules');
+        return $this->belongsToMany('App\Module', 'user_progress');
     }
 }

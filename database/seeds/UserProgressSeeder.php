@@ -1,5 +1,6 @@
 <?php
 
+use App\UserProgress;
 use Illuminate\Database\Seeder;
 
 class UserProgressSeeder extends Seeder
@@ -11,6 +12,8 @@ class UserProgressSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\UserProgress::class, 20)->create();
+        if(!UserProgress::query()->count(['*'])) {
+            factory(UserProgress::class, 20)->create();
+        }
     }
 }

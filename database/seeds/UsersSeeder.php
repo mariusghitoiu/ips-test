@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder
@@ -11,6 +12,8 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 5)->create();
+        if(!User::query()->count(['*'])) {
+            factory(User::class, 5)->create();
+        }
     }
 }
