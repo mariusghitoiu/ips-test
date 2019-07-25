@@ -29,6 +29,7 @@ class User extends Authenticatable
 
     public function userProgress()
     {
-        return $this->belongsToMany('App\Module', 'user_progress');
+        return $this->belongsToMany('App\Module', 'user_progress')
+            ->withPivot('started_at', 'ended_at');
     }
 }

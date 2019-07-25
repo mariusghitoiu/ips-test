@@ -18,12 +18,16 @@
 
                     <hr>
 
-                    <p>Completed modules:</p>
+                    <p>Started modules:</p>
 
                     <p>
                         <ul>
-                            @foreach(auth()->user()->completed_modules as $module)
-                                <li>{{ $module->module_key }}</li>
+                            @foreach(auth()->user()->userProgress as $module)
+                                <li>
+                                    <h3>{{ strtoupper($module->course_key) }} -> {{ $module->name }}</h3>
+                                    <h4>Started at: {{ $module->pivot->started_at }}</h4>
+                                    <h4>Ended at: {{ $module->pivot->ended_at?? 'In progress' }}</h4>
+                                </li>
                             @endforeach
                         </ul>
                     </p>

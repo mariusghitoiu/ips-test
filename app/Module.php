@@ -13,6 +13,7 @@ class Module extends Model
 
     public function user()
     {
-        return $this->belongsToMany('App\User', 'user_progress');
+        return $this->belongsToMany('App\User', 'user_progress')
+            ->withPivot('started_at', 'ended_at');
     }
 }
