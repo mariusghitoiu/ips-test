@@ -29,6 +29,7 @@ class ModuleReminderTagHelper
         ;
 
         $maxModulesPerCourse = DB::table('modules')
+            ->whereIn('modules.course_key', $coursesKeys)
             ->groupBy('course_key')
             ->pluck(DB::raw('max(modules.order) as maxModule'), 'modules.course_key');
 

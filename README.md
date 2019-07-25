@@ -3,8 +3,8 @@ Senior Backend Developer Test for iPhone Photography School
 
 ## Plan to approach the exercise
 * identify all entities and create/update tables to have all the data connected as need it. 
-* create modules for all tables 
 * populate database tables with tags content and also generate some fake data for `users` and `user_progress`
+* create Models for new tables and define relations between them.  
 * create the API with dummy data and test the update in Infusionsoft for a user. 
 * create the tests for new created endpoint.
 * decide how we will know what tag to set based on user progress. 
@@ -14,13 +14,17 @@ There should be a correlation between how we store progress, modules names/ids a
 
 ## Logic to determine the next tag: 
 - if no module is completed, set the first module tag from the first course bought.
-- get last completed modules from each course bought by user and for each determine if it is the last module or not.
-    - if all completed are the last one then set "Module reminders completed" tag. 
-    - otherwise, set the next module corresponding tag.    
- 
+- get last completed module "order" value for each course bought by user
+- get last module "order" value for all courses bought by user
+- iterate through all courses bought by users and 
+if last module order is < max module order for current course 
+return tag associated with first module of current course > last completed module "order" value.  
+- if none module is completed it will automatically take the tag for first module from first bought course
+- if all last modules from all bought courses are completed it wil return "Module reminders completed" tag.     
 
-# to be deleted - notes from specs to easily follow them
-In case of multiple courses attach first uncompleted based on the order they were bought. 
-So, the logic is to attache next uncompleted module from the older course bought. 
-To attache "Module reminders completed" we need to have all last modules from each course completed.
+## Some comments related to tests
+* I have written very few automated tests for previous projects I have been working on so my experience with testing is limited.
+* Now, because of this test for IPS I have started to revisit testing concepts with Laravel and Phpunit, 
+but I doesn't seem right to delay the submission of this test till "I get it enough" to write tests as expected. 
 
+* I wrote only a few, which are pretty straight forward but I will have to spend more time learning until I will write tests I am satisfied with in a production app. 
