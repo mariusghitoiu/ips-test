@@ -13,7 +13,7 @@ class UserProgressSeeder extends Seeder
     public function run()
     {
         if(!UserProgress::query()->count(['*'])) {
-            factory(UserProgress::class, 20)->create();
+            factory(UserProgress::class, 30)->create();
         }
     }
 }

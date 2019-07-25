@@ -22,9 +22,14 @@ return tag associated with first module of current course > last completed modul
 - if none module is completed it will automatically take the tag for first module from first bought course
 - if all last modules from all bought courses are completed it wil return "Module reminders completed" tag.     
 
-## Some comments related to tests
+## Some comments related to automated tests
 * I have written very few automated tests for previous projects I have been working on so my experience with testing is limited.
 * Now, because of this test for IPS I have started to revisit testing concepts with Laravel and Phpunit, 
 but I doesn't seem right to delay the submission of this test till "I get it enough" to write tests as expected. 
 
 * I wrote only a few, which are pretty straight forward but I will have to spend more time learning until I will write tests I am satisfied with in a production app. 
+
+## Comments in general about the test 
+* I have update seeders to create close enough data so that I can test easily various scenarios. There is room for improvement there if necessary. 
+* Refactored some things that I considered should be different. 
+* Was a fun test overall :) 
